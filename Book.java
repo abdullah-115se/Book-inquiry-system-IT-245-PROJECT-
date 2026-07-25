@@ -1,4 +1,5 @@
 public class Book {
+// Impplemented by Member 2 - Book Data Model Architecture
     private String title;
     private String author;
     private String isbn;
