@@ -1,24 +1,20 @@
-// Implemented by Member 3 - Linear Search and HashMap Lookup
-
+import java.util.List;
 import java.util.Map;
 
 public class SearchSolutions {
 
-    // Linear Search Implementation
-    public static int linearSearch(int[] arr, int target) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
-                return i;
+    // Solution 1: Linear Search using ArrayList - O(n)
+    public static Book searchWithList(List<Book> bookList, String targetTitle) {
+        for (Book book : bookList) {
+            if (book.getTitle().equalsIgnoreCase(targetTitle)) {
+                return book;
             }
         }
-        return -1;
+        return null;
     }
 
-    // HashMap Lookup Implementation
-    public static Object hashMapLookup(Map<Object, Object> map, Object key) {
-        if (map.containsKey(key)) {
-            return map.get(key);
-        }
-        return null;
+    // Solution 2: Direct Lookup using HashMap - O(1)
+    public static Book searchWithHashMap(Map<String, Book> bookMap, String targetTitle) {
+        return bookMap.get(targetTitle.toLowerCase());
     }
 }
