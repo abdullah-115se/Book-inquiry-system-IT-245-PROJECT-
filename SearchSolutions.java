@@ -1,9 +1,10 @@
+// Maintained by Member 3 - Sequential & Logarithmic List Algorithms
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class SearchSolutions {
 
-    // Solution 1: Linear Search using ArrayList - O(n)
+    // O(n) Sequential Linear Search
     public static Book searchWithList(List<Book> bookList, String targetTitle) {
         for (Book book : bookList) {
             if (book.getTitle().equalsIgnoreCase(targetTitle)) {
@@ -13,8 +14,23 @@ public class SearchSolutions {
         return null;
     }
 
-    // Solution 2: Direct Lookup using HashMap - O(1)
-    public static Book searchWithHashMap(Map<String, Book> bookMap, String targetTitle) {
-        return bookMap.get(targetTitle.toLowerCase());
+    // O(log n) Binary Search (List must be sorted first)
+    public static Book binarySearchWithList(List<Book> sortedList, String targetTitle) {
+        int low = 0;
+        int high = sortedList.size() - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int comparison = sortedList.get(mid).getTitle().compareToIgnoreCase(targetTitle);
+
+            if (comparison == 0) {
+                return sortedList.get(mid);
+            } else if (comparison < 0) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return null;
     }
 }

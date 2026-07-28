@@ -1,46 +1,55 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+// Maintained by Member 1 - Execution Driver & Benchmarking Engine
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        // Data Structures
-        List<Book> bookList = new ArrayList<>();
-        Map<String, Book> bookMap = new HashMap<>();
+        System.out.println("====================================================");
+        System.out.println("     PHASE 2 BENCHMARK SUITE (1,000 DATASET SIZE)   ");
+        System.out.println("====================================================\n");
 
-        // Phase 1 Sample Data
-        Book b1 = new Book("Clean Code", "Robert C. Martin", "978-0132350884");
-        Book b2 = new Book("Java Concurrency in Practice", "Brian Goetz", "978-0321349606");
-        Book b3 = new Book("Effective Java", "Joshua Bloch", "978-0134685991");
+        // 1. Generate Dataset (Member 2's DataLoader)
+        List<Book> bookList = DataLoader.generateLargeDataset(1000);
 
-        // Populate both collections
-        addBook(b1, bookList, bookMap);
-        addBook(b2, bookList, bookMap);
-        addBook(b3, bookList, bookMap);
+        // 2. Build Hash Indexes (Member 4's HashSolutions)
+        Map<String, Book> titleMap = HashSolutions.buildTitleMap(bookList);
+        Map<String, Book> isbnMap = HashSolutions.buildIsbnMap(bookList);
 
-        String targetTitle = "Effective Java";
+        String targetTitle = "Book Title 995"; 
+        String targetIsbn = "978-000000995";
 
-        // --- Testing Solution 1: ArrayList (Linear Search - O(n)) ---
-        System.out.println("=== Phase 1 Test: ArrayList Search (O(n)) ===");
-        long startTime1 = System.nanoTime();
-        Book result1 = SearchSolutions.searchWithList(bookList, targetTitle);
-        long endTime1 = System.nanoTime();
-        System.out.println("Result: " + result1);
-        System.out.println("Execution Time: " + (endTime1 - startTime1) + " ns\n");
+        // --- Benchmark 1: Linear Search O(n) (Member 3) ---
+        long startLinear = System.nanoTime();
+        Book resLinear = SearchSolutions.searchWithList(bookList, targetTitle);
+        long endLinear = System.nanoTime();
 
-        // --- Testing Solution 2: HashMap (Direct Lookup - O(1)) ---
-        System.out.println("=== Phase 1 Test: HashMap Search (O(1)) ===");
-        long startTime2 = System.nanoTime();
-        Book result2 = SearchSolutions.searchWithHashMap(bookMap, targetTitle);
-        long endTime2 = System.nanoTime();
-        System.out.println("Result: " + result2);
-        System.out.println("Execution Time: " + (endTime2 - startTime2) + " ns");
-    }
+        // --- Benchmark 2: Binary Search O(log n) (Member 3) ---
+        Collections.sort(bookList, Comparator.comparing(Book::getTitle));
+        long startBinary = System.nanoTime();
+        Book resBinary = SearchSolutions.binarySearchWithList(bookList, targetTitle);
+        long endBinary = System.nanoTime();
 
-    // Helper method to add book to both list and map
-    private static void addBook(Book book, List<Book> list, Map<String, Book> map) {
-        list.add(book);
-        map.put(book.getTitle().toLowerCase(), book);
+        // --- Benchmark 3: HashMap Title Search O(1) (Member 4) ---
+        long startHash = System.nanoTime();
+        Book resHash = HashSolutions.searchWithHashMap(titleMap, targetTitle);
+        long endHash = System.nanoTime();
+
+        // --- Benchmark 4: HashMap ISBN Search O(1) (Member 4) ---
+        long startIsbn = System.nanoTime();
+        Book resIsbn = HashSolutions.searchByIsbn(isbnMap, targetIsbn);
+        long endIsbn = System.nanoTime();
+
+        // Summary Output
+        System.out.println("Target Found: " + resHash);
+        System.out.println("----------------------------------------------------");
+        System.out.println("Algorithm                       Complexity  Execution Time");
+        System.out.println("----------------------------------------------------");
+        System.out.printf("Linear Search (ArrayList)       O(n)        %,d ns\n", (endLinear - startLinear));
+        System.out.printf("Binary Search (Sorted List)     O(log n)    %,d ns\n", (endBinary - startBinary));
+        System.out.printf("HashMap Lookup (Title)          O(1)        %,d ns\n", (endHash - startHash));
+        System.out.printf("HashMap Lookup (ISBN)           O(1)        %,d ns\n", (endIsbn - startIsbn));
+        System.out.println("====================================================");
     }
 }
