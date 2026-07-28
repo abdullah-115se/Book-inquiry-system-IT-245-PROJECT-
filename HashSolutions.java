@@ -1,5 +1,3 @@
-public class HashSolutions {
-    // Maintained by Member 4 - Hash Indexing & Key Sanitization
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,5 +35,4 @@ public class HashSolutions {
         String cleanIsbn = rawIsbn.replace("-", "").trim();
         return isbnMap.get(cleanIsbn);
     }
-}
 }

@@ -1,5 +1,3 @@
-public class DataLoader {
-    // Maintained by Member 2 - Dataset Generation & Loading
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,5 +11,4 @@ public class DataLoader {
         }
         return books;
     }
-}
 }
