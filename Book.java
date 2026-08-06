@@ -1,6 +1,6 @@
-// Maintained by Member 2 - Data Model Architecture
+//   Data Model Architecture
 public class Book {
-// Impplemented by Member 2 - Book Data Model Architecture
+//  Book Data Model Architecture
     private String title;
     private String author;
     private String isbn;
