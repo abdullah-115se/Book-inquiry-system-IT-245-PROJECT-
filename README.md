@@ -1,55 +1,74 @@
-#  Book Inquiry System 
+# Book Inquiry System
 
-An interactive Java application designed to store, manage, and query book records using data structures. in this project we compare sequential search, binary search, and hash-indexed lookup algorithms by measuring real-world execution speed ($O(n)$ vs $O(\log n)$ vs $O(1)$) in nanoseconds as the dataset scales.
+An interactive Java application designed to store, manage, and query book records using data structures. In this project, we compare sequential search, binary search, and hash-indexed lookup algorithms by measuring real-world execution speed ($O(n)$ vs $O(\log n)$ vs $O(1)$) in nanoseconds as the dataset scales.
 
 ---
 
 ## Group Members & Responsibilities
 
-| Member | Owned File | Key Responsibilities & Module Ownership |
-| :--- | :--- | :--- |
-| **ABDULLAH ALOFAIDLI (Team Lead / Main Driver)** | `Main.java` | Managed GitHub repository, designed execution runtime benchmarking suite in `Main.java`, and created project documentation (`README.md`). |
-| **Mohammed alqahtani (Data Model & Storage Developer)** | `Book.java` & `DataLoader.java` | Created `Book.java` class structure, constructor initialization, data getters, and automated large-scale dataset generation (`DataLoader.java`). |
-| **Ahmed alzahrani (Sequential & Logarithmic Algorithms Developer)** | `SearchSolutions.java` | Implemented $O(n)$ `ArrayList` sequential linear search and $O(\log n)$ binary search on sorted collections in `SearchSolutions.java`. |
-| **Rakan Alotaibi (Hash Indexing & Key Sanitization Specialist)** | `HashSolutions.java` | Implemented $O(1)$ `HashMap` direct key lookup by Title and ISBN, key normalization, and input sanitization in `HashSolutions.java`. |
+
+* **ABDULLAH ALOFAIDLI (Team Lead & Execution Driver):**
+  * **Assigned File:** `Main.java`
+  * **Responsibilities:** Project leader, GitHub repository administration, timing benchmarking.
+
+* **Ahmed Alzahrani (Data Model Developer):**
+  * **Assigned Files:** `Book.java` & `DataLoader.java`
+  * **Responsibilities:** Core Book domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
+
+* **Mohammed Abdullah alqahtani (Algorithms Developer Lists):**
+  * **Assigned File:** `SearchSolutions.java`
+  * **Responsibilities:** Implementation of sequential linear search  and logarithmic binary search  algorithms on ArrayList collections.
+
+* **Rakan Alotaibi Algorithms Developer (Hash Indexing):**
+  * **Assigned File:** `HashSolutions.java`
+  * **Responsibilities:** Direct O(1) HashMap search indexing by Title and ISBN, key normalization, and string sanitization.
 
 ---
 
-##  System Architecture & File Ownership
+## System Architecture & File Ownership
 
-The project is separated to 4 members meaning a file to each member to enable team development without Git merge conflicts:
+To keep our Git workflow clean and avoid merge conflicts, we divided our project into 5 dedicated Java files:
 
-1. **`Book.java` (Domain Model — Mohammed alqahtani):** Encapsulates book attributes (`title`, `author`, `isbn`) with private fields, constructor initialization, getters, and overridden `toString` representation.
-2. **`DataLoader.java` (Data Generator — Mohammed alqahtani):** Generates large-scale synthetic datasets (1,000+ entries) to support Phase 2 scaling and benchmarking experiments.
-3. **`SearchSolutions.java` (List Algorithms — Ahmed alzahrani):**
-   * **Linear Search ($O(n)$):** Iterates sequentially through an `ArrayList<Book>`.
-   * **Binary Search ($O(\log n)$):** Performs logarithmic search on sorted book collections.
-4. **`HashSolutions.java` (Hash Indexing — Rakan Alotaibi):**
-   * **Title Hash Lookup ($O(1)$):** Utilizes a `HashMap<String, Book>` indexed by normalized lowercase titles.
-   * **ISBN Hash Lookup ($O(1)$):** Direct $O(1)$ retrieval using sanitized ISBN keys.
-5. **`Main.java` (Driver & Benchmarking — ABDULLAH ALOFAIDLI):** Instantiates datasets, builds indexes, executes search algorithms, and outputs high-precision nanosecond execution metrics (`System.nanoTime()`).
+1. **`Book.java` (Mohammed Alqahtani):** Represents the `Book` class, including title, author, and ISBN attributes alongside standard getter methods.
+2. **`DataLoader.java` (Mohammed Alqahtani):** Generates synthetic dataset records (1,000 books) to provide a sample for testing and benchmarking.
+3. **`SearchSolutions.java` (Ahmed Alzahrani):** Handles list-based searches using `ArrayList` specifically sequential Linear Search $O(n)$ and sorted Binary Search $O(\log n)$.
+4. **`HashSolutions.java` (Rakan Alotaibi):** Handles instant $O(1)$ `HashMap` lookups by title and ISBN, including text checking to clean up spaces and hyphens.
+5. **`Main.java` (Abdullah Alofaidli):** the main execution running all search processes and measuring execution timing in nanoseconds using `System.nanoTime()`.
 
 ---
 
-##  Algorithmic Complexity Comparison
+## Algorithmic Complexity Comparison
 
-| Operation | Data Structure | Best Case | Average Case | Worst Case | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Linear Search** | `ArrayList` | $O(1)$ | $O(n)$ | $O(n)$ | $O(n)$ |
-| **Binary Search** | `ArrayList` (Sorted) | $O(1)$ | $O(\log n)$ | $O(\log n)$ | $O(n)$ |
-| **Hash Lookup (Title/ISBN)** | `HashMap` | $O(1)$ | $O(1)$ | $O(n)^*$ | $O(n)$ |
+### 1. Linear Search
+* **Data Structure:** `ArrayList`
+* **Best Case:** $O(1)$
+* **Average Case:** $O(n)$
+* **Worst Case:** $O(n)$
+* **Space Complexity:** $O(n)$
 
-*\* Worst case for HashMap occurs during rare hash collisions.*
+### 2. Binary Search
+* **Data Structure:** `ArrayList` (Sorted)
+* **Best Case:** $O(1)$
+* **Average Case:** $O(\log n)$
+* **Worst Case:** $O(\log n)$
+* **Space Complexity:** $O(n)$
+
+### 3. Hash Lookup (Title / ISBN)
+* **Data Structure:** `HashMap`
+* **Best Case:** $O(1)$
+* **Average Case:** $O(1)$
+* **Worst Case:** $O(n)$ *(Occurs during rare hash collisions)*
+* **Space Complexity:** $O(n)$
 
 ---
 
-## Here's how to run 
-* **Java Development Kit (JDK 11 or higher)** installed.
-* **Git Bash** / Terminal environment.
-
-### Build and Execution Commands
+## How to Run
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/Book-inquiry-system-IT-245-PROJECT-.git](https://github.com/YOUR_USERNAME/Book-inquiry-system-IT-245-PROJECT-.git)
+   git clone https://github.com/abdullah-115se/Book-inquiry-system-IT-245-PROJECT-.git
    cd Book-inquiry-system-IT-245-PROJECT-
+
+   2. Compile all Java source files:
+   ```bash
+   javac Book.java DataLoader.java SearchSolutions.java HashSolutions.java Main.java
