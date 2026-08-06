@@ -72,6 +72,6 @@ The project is separated into different files for all 4 members to enable clean 
    git clone https://github.com/abdullah-115se/Book-inquiry-system-IT-245-PROJECT-.git
    cd Book-inquiry-system-IT-245-PROJECT-
 
-   2. **Compile all Java source files:**
+   2. Compile all Java source files:
    ```bash
    javac Book.java DataLoader.java SearchSolutions.java HashSolutions.java Main.java
