@@ -6,20 +6,22 @@ An interactive Java application designed to store, manage, and query book record
 
 ## Group Members & Responsibilities
 
- 1. Team Members & Contribution Matrix
-ABDULLAH ALOFAIDLI (Team Lead & Execution Driver):
-Assigned File: Main.java
-Responsibilities: Project leader, GitHub repository administration, timing benchmarking.
-Ahmed Alzahrani (Data Model Developer):
-Assigned Files: Book.java & DataLoader.java
-Responsibilities: Core Book domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
-Mohammed Abdullah alqahtani (Algorithms Developer Lists):
-Assigned File: SearchSolutions.java
-Responsibilities: Implementation of sequential linear search  and logarithmic binary search  algorithms on ArrayList collections.
-Rakan Alotaibi Algorithms Developer (Hash Indexing):
-Assigned File: HashSolutions.java
-Responsibilities: Direct O(1) HashMap search indexing by Title and ISBN, key normalization, and string sanitization.
 
+* **ABDULLAH ALOFAIDLI** — Team Lead & Execution Driver
+  * **Assigned File:** `Main.java`
+  * **Responsibilities:** Project leadership, GitHub repository administration, nanosecond timing benchmarking suite, and final report synthesis.
+
+* **Ahmed Alzahrani** — Data Model Developer
+  * **Assigned Files:** `Book.java` & `DataLoader.java`
+  * **Responsibilities:** Core `Book` domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
+
+* **Mohammed Abdullah Alqahtani** — Algorithms Developer (Lists)
+  * **Assigned File:** `SearchSolutions.java`
+  * **Responsibilities:** Implementation of sequential linear search $O(n)$ and logarithmic binary search $O(\log n)$ algorithms on `ArrayList` collections.
+
+* **Rakan Alotaibi** — Algorithms Developer (Hash Indexing)
+  * **Assigned File:** `HashSolutions.java`
+  * **Responsibilities:** Direct $O(1)$ `HashMap` search indexing by Title and ISBN, key normalization, and string sanitization.
 
 ---
 
