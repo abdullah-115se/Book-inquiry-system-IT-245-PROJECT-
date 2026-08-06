@@ -1,4 +1,4 @@
-// Maintained by Member 3 - Sequential & Logarithmic List Algorithms
+//Sequential & Logarithmic List Algorithms
 import java.util.ArrayList;
 import java.util.List;
 
