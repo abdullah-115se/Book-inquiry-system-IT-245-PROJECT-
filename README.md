@@ -6,37 +6,32 @@ An interactive Java application designed to store, manage, and query book record
 
 ## Group Members & Responsibilities
 
-* **ABDULLAH ALOFAIDLI** — Team Lead and Main Driver
-  * **Owned File:** `Main.java`
-  * **Key Responsibilities:** Managed GitHub repository, designed execution runtime benchmarking suite in `Main.java`, and created project documentation (`README.md`).
+ 1. Team Members & Contribution Matrix
+ABDULLAH ALOFAIDLI (Team Lead & Execution Driver):
+Assigned File: Main.java
+Responsibilities: Project leader, GitHub repository administration, timing benchmarking.
+Ahmed Alzahrani (Data Model Developer):
+Assigned Files: Book.java & DataLoader.java
+Responsibilities: Core Book domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
+Mohammed Abdullah alqahtani (Algorithms Developer Lists):
+Assigned File: SearchSolutions.java
+Responsibilities: Implementation of sequential linear search  and logarithmic binary search  algorithms on ArrayList collections.
+Rakan Alotaibi Algorithms Developer (Hash Indexing):
+Assigned File: HashSolutions.java
+Responsibilities: Direct O(1) HashMap search indexing by Title and ISBN, key normalization, and string sanitization.
 
-* **Mohammed alqahtani** — Data Model and Storage Developer
-  * **Owned Files:** `Book.java` & `DataLoader.java`
-  * **Key Responsibilities:** Created `Book.java` class structure, constructor initialization, data getters, and automated large-scale dataset generation (`DataLoader.java`).
-
-* **Ahmed alzahrani** — Sequential and Logarithmic Algorithms Developer
-  * **Owned File:** `SearchSolutions.java`
-  * **Key Responsibilities:** Implemented $O(n)$ `ArrayList` sequential linear search and $O(\log n)$ binary search on sorted collections in `SearchSolutions.java`.
-
-* **Rakan Alotaibi** — Hash Indexing and Key Sanitization Specialist
-  * **Owned File:** `HashSolutions.java`
-  * **Key Responsibilities:** Implemented $O(1)$ `HashMap` direct key lookup by Title and ISBN, key normalization, and input sanitization in `HashSolutions.java`.
 
 ---
 
 ## System Architecture & File Ownership
 
-The project is separated into different files for all 4 members to enable clean team development without Git merge conflicts:
+To keep our Git workflow clean and avoid merge conflicts, we divided our project into 5 dedicated Java files:
 
-1. **`Book.java` (Domain Model — Mohammed alqahtani):** Encapsulates book attributes (`title`, `author`, `isbn`) with private fields, constructor initialization, getters, and an overridden `toString` representation.
-2. **`DataLoader.java` (Data Generator — Mohammed alqahtani):** Generates large-scale synthetic datasets (1,000+ entries) to support Phase 2 scaling and benchmarking experiments.
-3. **`SearchSolutions.java` (List Algorithms — Ahmed alzahrani):**
-   * **Linear Search ($O(n)$):** Iterates sequentially through an `ArrayList<Book>`.
-   * **Binary Search ($O(\log n)$):** Performs logarithmic search on sorted book collections.
-4. **`HashSolutions.java` (Hash Indexing — Rakan Alotaibi):**
-   * **Title Hash Lookup ($O(1)$):** Utilizes a `HashMap<String, Book>` indexed by normalized lowercase titles.
-   * **ISBN Hash Lookup ($O(1)$):** Direct $O(1)$ retrieval using sanitized ISBN keys.
-5. **`Main.java` (Driver & Benchmarking — ABDULLAH ALOFAIDLI):** Instantiates datasets, builds indexes, executes search algorithms, and outputs high-precision nanosecond execution metrics (`System.nanoTime()`).
+1. **`Book.java` (Mohammed Alqahtani):** Represents the `Book` class, including title, author, and ISBN attributes alongside standard getter methods.
+2. **`DataLoader.java` (Mohammed Alqahtani):** Generates synthetic dataset records (1,000 books) to provide a sample for testing and benchmarking.
+3. **`SearchSolutions.java` (Ahmed Alzahrani):** Handles list-based searches using `ArrayList` specifically sequential Linear Search $O(n)$ and sorted Binary Search $O(\log n)$.
+4. **`HashSolutions.java` (Rakan Alotaibi):** Handles instant $O(1)$ `HashMap` lookups by title and ISBN, including text checking to clean up spaces and hyphens.
+5. **`Main.java` (Abdullah Alofaidli):** the main execution running all search processes and measuring execution timing in nanoseconds using `System.nanoTime()`.
 
 ---
 
