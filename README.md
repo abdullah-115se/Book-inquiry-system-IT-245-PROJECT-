@@ -7,21 +7,21 @@ An interactive Java application designed to store, manage, and query book record
 ## Group Members & Responsibilities
 
 
-* **ABDULLAH ALOFAIDLI** — Team Lead & Execution Driver
+* **ABDULLAH ALOFAIDLI (Team Lead & Execution Driver):**
   * **Assigned File:** `Main.java`
-  * **Responsibilities:** Project leadership, GitHub repository administration, nanosecond timing benchmarking suite, and final report synthesis.
+  * **Responsibilities:** Project leader, GitHub repository administration, timing benchmarking.
 
-* **Ahmed Alzahrani** — Data Model Developer
+* **Ahmed Alzahrani (Data Model Developer):**
   * **Assigned Files:** `Book.java` & `DataLoader.java`
-  * **Responsibilities:** Core `Book` domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
+  * **Responsibilities:** Core Book domain entity design, constructor and getter encapsulation, and automated dataset generator for 1,000+ records.
 
-* **Mohammed Abdullah Alqahtani** — Algorithms Developer (Lists)
+* **Mohammed Abdullah alqahtani (Algorithms Developer Lists):**
   * **Assigned File:** `SearchSolutions.java`
-  * **Responsibilities:** Implementation of sequential linear search $O(n)$ and logarithmic binary search $O(\log n)$ algorithms on `ArrayList` collections.
+  * **Responsibilities:** Implementation of sequential linear search  and logarithmic binary search  algorithms on ArrayList collections.
 
-* **Rakan Alotaibi** — Algorithms Developer (Hash Indexing)
+* **Rakan Alotaibi Algorithms Developer (Hash Indexing):**
   * **Assigned File:** `HashSolutions.java`
-  * **Responsibilities:** Direct $O(1)$ `HashMap` search indexing by Title and ISBN, key normalization, and string sanitization.
+  * **Responsibilities:** Direct O(1) HashMap search indexing by Title and ISBN, key normalization, and string sanitization.
 
 ---
 
